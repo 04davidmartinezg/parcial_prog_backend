@@ -1,0 +1,97 @@
+### consultar todos los conductores
+GET http://127.0.0.1:8001/conductor
+
+###
+
+### consultar conductor por id
+GET http://127.0.0.1:8001/conductor/1
+
+###
+
+### buscar conductor por documento
+GET http://127.0.0.1:8001/conductor?documento=1000123456
+
+###
+
+### buscar conductor por licencia
+GET http://127.0.0.1:8001/conductor?numero_licencia=LIC-1001
+
+###
+
+### buscar conductores disponibles
+GET http://127.0.0.1:8001/conductor?estado=disponible
+
+###
+
+### buscar conductores en ruta
+GET http://127.0.0.1:8001/conductor?estado=en_ruta
+
+###
+
+### buscar conductores inactivos
+GET http://127.0.0.1:8001/conductor?estado=inactivo
+
+###
+
+### crear conductor
+POST http://127.0.0.1:8001/conductor
+Content-Type: application/json
+
+{
+    "nombres": "Juan",
+    "apellidos": "Perez",
+    "documento": "123456789",
+    "telefono": "3001234567",
+    "correo": "juan@logitrans.com",
+    "numero_licencia": "LIC-2001",
+    "categoria_licencia": "C2",
+    "fecha_vencimiento_licencia": "2028-12-31"
+}
+
+###
+
+### modificar conductor
+PUT http://127.0.0.1:8001/conductor/1
+Content-Type: application/json
+
+{
+    "nombres": "Juan Carlos",
+    "apellidos": "Perez",
+    "documento": "123456789",
+    "telefono": "3119998888",
+    "correo": "juan@logitrans.com",
+    "numero_licencia": "LIC-2001",
+    "categoria_licencia": "C3",
+    "fecha_vencimiento_licencia": "2029-12-31",
+    "estado": "disponible"
+}
+
+###
+
+### cambiar estado a en_ruta
+PATCH http://127.0.0.1:8001/conductor/1
+Content-Type: application/json
+
+{
+    "estado": "en_ruta"
+}
+
+###
+
+### cambiar estado a disponible
+PATCH http://127.0.0.1:8001/conductor/1
+Content-Type: application/json
+
+{
+    "estado": "disponible"
+}
+
+###
+
+### cambiar estado a inactivo
+PATCH http://127.0.0.1:8001/conductor/1
+Content-Type: application/json
+
+{
+    "estado": "inactivo"
+}
