@@ -1,0 +1,97 @@
+### Consultar todos los vehículos
+GET http://127.0.0.1:8003/vehiculo
+
+###
+
+### Consultar vehículo por id
+GET http://127.0.0.1:8003/vehiculo/1
+
+###
+
+### Buscar vehículo por placa
+GET http://127.0.0.1:8003/vehiculo?placa=ABC123
+
+###
+
+### Buscar vehículo por tipo de vehículo
+GET http://127.0.0.1:8003/vehiculo?tipo_vehiculo=Camion
+
+###
+
+### Buscar vehículos disponibles
+GET http://127.0.0.1:8003/vehiculo?estado=disponible
+
+###
+
+### Buscar vehículos en ruta
+GET http://127.0.0.1:8003/vehiculo?estado=en_ruta
+
+###
+
+### Buscar vehículos en mantenimiento
+GET http://127.0.0.1:8003/vehiculo?estado=mantenimiento
+
+###
+
+### Buscar vehículos inactivos
+GET http://127.0.0.1:8003/vehiculo?estado=inactivo
+
+###
+
+### Crear vehículo
+POST http://127.0.0.1:8003/vehiculo
+Content-Type: application/json
+
+{
+    "placa": "MNO456",
+    "tipo_vehiculo": "Tractomula",
+    "capacidad_carga": 12000.50,
+    "modelo": "2024",
+    "marca": "Kenworth",
+    "estado": "disponible"
+}
+
+###
+
+### Modificar vehículo
+PUT http://127.0.0.1:8003/vehiculo/1
+Content-Type: application/json
+
+{
+    "placa": "ABC123",
+    "tipo_vehiculo": "Camion Pesado",
+    "capacidad_carga": 5500.00,
+    "modelo": "2022",
+    "marca": "Chevrolet",
+    "estado": "disponible"
+}
+
+###
+
+### Cambiar estado a en_ruta
+PATCH http://127.0.0.1:8003/vehiculo/1
+Content-Type: application/json
+
+{
+    "estado": "en_ruta"
+}
+
+###
+
+### Cambiar estado a mantenimiento
+PATCH http://127.0.0.1:8003/vehiculo/1
+Content-Type: application/json
+
+{
+    "estado": "mantenimiento"
+}
+
+###
+
+### Cambiar estado a inactivo
+PATCH http://127.0.0.1:8003/vehiculo/1
+Content-Type: application/json
+
+{
+    "estado": "inactivo"
+}
