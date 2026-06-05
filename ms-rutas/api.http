@@ -1,0 +1,50 @@
+### Consultar todas las rutas
+GET http://127.0.0.1:8002/ruta
+
+###
+
+### Consultar ruta por id
+GET http://127.0.0.1:8002/ruta/1
+
+###
+
+### Buscar rutas por ciudad origen
+GET http://127.0.0.1:8002/ruta?ciudad_origen=Bogota
+
+###
+
+### Buscar rutas por ciudad destino
+GET http://127.0.0.1:8002/ruta?ciudad_destino=Medellin
+
+###
+
+### Consultar tiempos estimados
+GET http://127.0.0.1:8002/ruta?tiempo_estimado=9
+
+###
+
+### Crear ruta
+POST http://127.0.0.1:8002/ruta
+Content-Type: application/json
+
+{
+    "ciudad_origen": "Bogota",
+    "ciudad_destino": "Medellin",
+    "distancia": 420,
+    "tiempo_estimado": 8,
+    "observaciones": "Ruta principal"
+}
+
+###
+
+### Modificar ruta
+PUT http://127.0.0.1:8002/ruta/1
+Content-Type: application/json
+
+{
+    "ciudad_origen": "Bogota",
+    "ciudad_destino": "Tunja",
+    "distancia": 450,
+    "tiempo_estimado": 9,
+    "observaciones": "Actualizada por mantenimiento vial"
+}
