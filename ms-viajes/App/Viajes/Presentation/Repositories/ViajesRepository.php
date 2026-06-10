@@ -3,7 +3,7 @@ namespace App\Viajes\Presentation\Repositories;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use App\Viajes\Controllers\ViajesController;
+use App\Viajes\Controllers\ViajesControllers;
 use Exception;
 
 class ViajesRepository
@@ -14,7 +14,7 @@ class ViajesRepository
             $body = $request->getBody()->getContents();
             $data = json_decode($body, true);
 
-            $controller = new ViajesController();
+            $controller = new ViajesControllers();
             $seguimiento = $controller->iniciarViaje($data);
 
             $response->getBody()->write($seguimiento);
@@ -43,7 +43,7 @@ class ViajesRepository
             $body = $request->getBody()->getContents();
             $data = json_decode($body, true);
 
-            $controller = new ViajesController();
+            $controller = new ViajesControllers();
             $seguimiento = $controller->registrarNovedad($data);
 
             $response->getBody()->write($seguimiento);
@@ -72,7 +72,7 @@ class ViajesRepository
             $body = $request->getBody()->getContents();
             $data = json_decode($body, true);
 
-            $controller = new ViajesController();
+            $controller = new ViajesControllers();
             $seguimiento = $controller->finalizarViaje($data);
 
             $response->getBody()->write($seguimiento);
@@ -100,7 +100,7 @@ class ViajesRepository
         try {
             $viajeId = $args['viaje_id'];
 
-            $controller = new ViajesController();
+            $controller = new ViajesControllers();
             $seguimientos = $controller->consultarSeguimiento($viajeId);
 
             $response->getBody()->write($seguimientos);

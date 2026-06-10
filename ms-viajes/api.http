@@ -1,10 +1,10 @@
 ###consultar seguimiento de un viaje###
-GET http://127.0.0.1:8004/viajes/1
+GET http://127.0.0.1:8004/seguimiento/1
 
 ###
 
 ###iniciar viaje###
-POST http://127.0.0.1:8004/viajes/iniciar
+POST http://127.0.0.1:8004/seguimiento/iniciar
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 ###
 
 ###registrar novedad###
-POST http://127.0.0.1:8004/viajes/novedad
+POST http://127.0.0.1:8004/seguimiento/novedad
 Content-Type: application/json
 
 {
@@ -31,7 +31,7 @@ Content-Type: application/json
 ###
 
 ###finalizar viaje###
-POST http://127.0.0.1:8004/viajes/finalizar
+POST http://127.0.0.1:8004/seguimiento/finalizar
 Content-Type: application/json
 
 {
