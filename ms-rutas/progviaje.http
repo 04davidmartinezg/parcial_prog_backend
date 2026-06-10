@@ -1,0 +1,59 @@
+### Consultar todas las programaciones
+GET http://127.0.0.1:8002/progviaje
+
+###
+
+### Consultar programación por id
+GET http://127.0.0.1:8002/progviaje/1
+
+###
+
+### Buscar programaciones por conductor
+GET http://127.0.0.1:8002/progviaje?conductor_id=1
+
+###
+
+### Buscar programaciones por vehículo
+GET http://127.0.0.1:8002/progviaje?vehiculo_id=1
+
+###
+
+### Buscar programaciones por estado
+GET http://127.0.0.1:8002/progviaje?estado=programado
+
+###
+
+### Buscar programaciones por fecha
+GET http://127.0.0.1:8002/progviaje?fecha=2026-06-15
+
+###
+
+### Programar viaje
+POST http://127.0.0.1:8002/progviaje
+Content-Type: application/json
+
+{
+    "conductor_id": 1,
+    "vehiculo_id": 1,
+    "ruta_id": 1,
+    "fecha_salida": "2026-06-15",
+    "hora_salida": "06:00:00",
+    "fecha_estimada_llegada": "2026-06-15",
+    "observaciones": "Carga de alimentos"
+}
+
+###
+
+### Reprogramar viaje
+PUT http://127.0.0.1:8002/progviaje/1
+Content-Type: application/json
+
+{
+    "conductor_id": 2,
+    "vehiculo_id": 2,
+    "ruta_id": 1,
+    "fecha_salida": "2026-06-16",
+    "hora_salida": "08:00:00",
+    "fecha_estimada_llegada": "2026-06-16",
+    "observaciones": "Cambio de horario"
+}

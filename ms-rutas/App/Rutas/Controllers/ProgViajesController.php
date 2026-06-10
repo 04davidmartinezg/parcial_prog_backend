@@ -5,7 +5,7 @@ namespace App\Rutas\Controllers;
 use App\Rutas\Models\ProgViaje;
 use Exception;
 
-class ProgViajesControllers {
+class ProgViajesController {
 
     function getProgViajes($filtros = []){
         $query = ProgViaje::query();

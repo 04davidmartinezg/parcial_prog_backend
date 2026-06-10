@@ -5,6 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProgViaje extends Model {
 
-    protected $table = 'progviaje';
+    protected $table = 'programaciones_viajes';
     public $timestamps = false;
 }

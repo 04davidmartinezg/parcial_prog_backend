@@ -4,7 +4,7 @@ namespace App\Rutas\Presentation\Repositories;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use App\Rutas\Controllers\ProgViajesControllers;
+use App\Rutas\Controllers\ProgViajesController;
 use Exception;
 
 class ProgViajesRepository
@@ -12,29 +12,43 @@ class ProgViajesRepository
      function all(Request $request, Response $response)
     {
         $params = $request->getQueryParams();
-        $controller = new ProgViajesControllers();
+        $controller = new ProgViajesController();
         $progviajes = $controller->getProgViajes($params);
         $response->getBody()->write($progviajes);
         return $response->withHeader("Content-Type", "application/json");
     }
-      function create(Request $request, Response $response)
+    function create(Request $request, Response $response)
     {
+    try {
         $bodyRequest = $request->getBody()->getContents();
         $data = json_decode($bodyRequest, true);
-        $controller = new ProgViajesControllers();
+        $controller = new ProgViajesController();
         $progviaje = $controller->crearProgViaje($data);
         $response->getBody()->write($progviaje);
         return $response
             ->withStatus(201)
             ->withHeader("Content-Type", "application/json");
+    } catch (Exception $ex) {
+        $response->getBody()->write(
+            json_encode([
+                "error" => $ex->getMessage()
+            ])
+        );
+        $code = 400;
+        if ($ex->getCode() == 1) {
+            $code = 404;
+        }
+        return $response
+            ->withStatus($code)
+            ->withHeader("Content-Type", "application/json");
     }
-
+}
     function detail(Request $req, Response $resp, $args)
     {
         try {
             $id = $args['id'];
 
-            $controller = new ProgViajesControllers();
+            $controller = new ProgViajesController();
             $progviaje = $controller->getProgViaje($id);
 
             $resposeBody = $progviaje->toJson();
@@ -57,7 +71,7 @@ class ProgViajesRepository
             $body = $req->getBody()->getContents();
             $data = json_decode($body, true);
 
-            $controller = new ProgViajesControllers();
+            $controller = new ProgViajesController();
             $progviaje = $controller->modificarProgViaje($id, $data);
 
             $dataResponse = $progviaje->toJson();
