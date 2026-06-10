@@ -67,6 +67,7 @@ class ProgViajesController {
         }
         $viaje->conductor_id   = $data['conductor_id'];
         $viaje->vehiculo_id    = $data['vehiculo_id'];
+        $viaje->ruta_id        = $data['ruta_id'];
         $viaje->fecha_salida   = $data['fecha_salida'];
         $viaje->hora_salida    = $data['hora_salida'];
         $viaje->fecha_estimada_llegada = $data['fecha_estimada_llegada'];
