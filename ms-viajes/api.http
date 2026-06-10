@@ -1,0 +1,42 @@
+###consultar seguimiento de un viaje###
+GET http://127.0.0.1:8004/viajes/1
+
+###
+
+###iniciar viaje###
+POST http://127.0.0.1:8004/viajes/iniciar
+Content-Type: application/json
+
+{
+"programacion_viaje_id": 1,
+"fecha": "2026-06-15",
+"hora": "06:00:00",
+"novedad": "Vehiculo inicia recorrido hacia Medellin"
+}
+
+###
+
+###registrar novedad###
+POST http://127.0.0.1:8004/viajes/novedad
+Content-Type: application/json
+
+{
+"programacion_viaje_id": 1,
+"fecha": "2026-06-15",
+"hora": "10:30:00",
+"estado": "retrasado",
+"novedad": "Retraso por trafico en carretera"
+}
+
+###
+
+###finalizar viaje###
+POST http://127.0.0.1:8004/viajes/finalizar
+Content-Type: application/json
+
+{
+"programacion_viaje_id": 1,
+"fecha": "2026-06-15",
+"hora": "14:00:00",
+"novedad": "Viaje completado exitosamente"
+}
