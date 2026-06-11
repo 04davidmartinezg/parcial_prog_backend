@@ -41,7 +41,7 @@ class AutenticacionController
         $usuario->sesion_activa = false;
         $usuario->save();
         return json_encode([
-            "mensaje" => "Sesión cerrada correctamente."
+            "mensaje" => "Sesion cerrada correctamente."
         ]);
     }
     function validarSesion($usuarioId)

@@ -22,8 +22,8 @@ class AutenticacionRepository
                 "error" => $ex->getMessage()
             ]));
             $code = $ex->getCode();
-            if ($code == 0) {
-                $code = 400;
+            if ($code == 1) {
+                $code = 401;
             }
             return $resp
                 ->withStatus($code)
@@ -53,6 +53,9 @@ class AutenticacionRepository
             if ($code == 0) {
                 $code = 400;
             }
+            if ($code == 1) {
+                $code = 401;
+                }
 
             return $resp
                 ->withStatus($code)
@@ -80,7 +83,11 @@ class AutenticacionRepository
                 "error" => $ex->getMessage()
             ]));
 
-            $code = $ex->getCode();
+            $code = $ex->getCode();}
+
+            if ($code == 1) {
+            $code = 401;
+        }
 
             if ($code == 0) {
                 $code = 400;
@@ -91,4 +98,3 @@ class AutenticacionRepository
                 ->withHeader("Content-Type", "application/json");
         }
     }
-}
