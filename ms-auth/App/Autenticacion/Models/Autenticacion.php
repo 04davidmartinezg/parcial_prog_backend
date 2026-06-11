@@ -5,6 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Autenticacion extends Model {
 
-    protected $table = 'autenticacion';
+    protected $table = 'usuarios';
     public $timestamps = false;
 }
