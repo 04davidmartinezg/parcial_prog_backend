@@ -1,0 +1,101 @@
+### Iniciar sesión con usuario
+POST http://127.0.0.1:8000/login
+Content-Type: application/json
+
+{
+    "username_or_email": "admin",
+    "contrasena": "admin123"
+}
+
+###
+
+### Iniciar sesión con correo
+POST http://127.0.0.1:8000/login
+Content-Type: application/json
+
+{
+    "username_or_email": "admin@logitrans.com",
+    "contrasena": "admin123"
+}
+
+###
+
+### Iniciar sesión como operador logístico
+POST http://127.0.0.1:8000/login
+Content-Type: application/json
+
+{
+    "username_or_email": "logistica",
+    "contrasena": "logistica123"
+}
+
+###
+
+### Validar sesión del administrador
+POST http://127.0.0.1:8000/validate
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###
+
+### Validar sesión del operador logístico
+POST http://127.0.0.1:8000/validate
+Content-Type: application/json
+
+{
+    "id": 2
+}
+
+###
+
+### Cerrar sesión del administrador
+POST http://127.0.0.1:8000/logout
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###
+
+### Cerrar sesión del operador logístico
+POST http://127.0.0.1:8000/logout
+Content-Type: application/json
+
+{
+    "id": 2
+}
+
+###
+
+### Intentar iniciar sesión con contraseña incorrecta
+POST http://127.0.0.1:8000/login
+Content-Type: application/json
+
+{
+    "username_or_email": "admin",
+    "contrasena": "123456"
+}
+
+###
+
+### Intentar validar una sesión inexistente
+POST http://127.0.0.1:8000/validate
+Content-Type: application/json
+
+{
+    "id": 999
+}
+
+###
+
+### Intentar cerrar sesión de un usuario inexistente
+POST http://127.0.0.1:8000/logout
+Content-Type: application/json
+
+{
+    "id": 999
+}
