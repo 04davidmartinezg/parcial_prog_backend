@@ -41,7 +41,7 @@ class ConductoresControllers {
         $conductor->numero_licencia = $data['numero_licencia'];
         $conductor->categoria_licencia = $data['categoria_licencia'];
         $conductor->fecha_vencimiento_licencia = $data['fecha_vencimiento_licencia'];
-        $conductor->estado = 'disponible';
+        $conductor->estado = $data['estado'];
         $conductor->save();
         return $conductor->toJson();
     }

@@ -1,6 +1,6 @@
 <?php
 use Slim\Factory\AppFactory;
-
+use Psr\Http\Message\ServerRequestInterface as Request;
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ .'/../app/Config/database.php';
 

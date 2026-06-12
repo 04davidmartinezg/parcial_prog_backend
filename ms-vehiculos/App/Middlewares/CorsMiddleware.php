@@ -5,6 +5,7 @@ return function ($app) {
     $app->options('/{routes:.+}', fn($req, $res) => $res);
 
     $app->add(function (Request $request, $handler) {
+        error_log("CORS Middleware ejecutándose - Origin: " . ($request->getHeaderLine('Origin') ?: 'sin origin'));
         $origin = $request->getHeaderLine('Origin') ?: '*';
         $response = $handler->handle($request);
         $response = $response
