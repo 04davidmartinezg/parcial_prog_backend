@@ -18,17 +18,27 @@ class ConductoresRepository
         return $response->withHeader("Content-Type", "application/json");
     }
     function create(Request $request, Response $response)
-    {
+{
+    try {
         $bodyRequest = $request->getBody()->getContents();
         $data = json_decode($bodyRequest, true);
         $controller = new ConductoresControllers();
+        
         $conductor = $controller->crearConductor($data);
+        
         $response->getBody()->write($conductor);
         return $response
             ->withStatus(201)
             ->withHeader("Content-Type", "application/json");
+    } catch (Exception $ex) {
+        $response->getBody()->write(json_encode([
+            "error" => $ex->getMessage()
+        ]));
+        return $response
+            ->withStatus(400)
+            ->withHeader("Content-Type", "application/json");
     }
-
+}
     function detail(Request $req, Response $resp, $args)
     {
         try {
